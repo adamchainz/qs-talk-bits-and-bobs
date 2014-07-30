@@ -4,6 +4,7 @@
 \usepackage{bm}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{listings}
 \graphicspath{ {./img/} {./charts/} }
 
 
@@ -21,10 +22,8 @@
     \textcolor{blue}{\Large{Recap}}
 
     \begin{itemize}
-        \item Given two talks:
-        \item Calendar Lifelogging
-        \item Skill Acquisition
-        \item This talk is just a few little things as an update on things to show and tell
+        \item Given two talks: 'Calendar Lifelogging', 'Skill Acquisition'
+        \item This talk is just a few little things to show and tell
     \end{itemize}
 
 \end{slide}
@@ -36,7 +35,7 @@
 
     \begin{enumerate}
         \item Cycled Land's End to John O' Groats
-        \item Improved Lifelogger process
+        \item Improved lifelogging process
         \item Using `Lift'
     \end{enumerate}
 
@@ -44,6 +43,17 @@
 
 
 % part 2
+
+
+\begin{slide}
+
+    \textcolor{blue}{\Large{Cycling from Land's End to John O' Groats}}
+
+    \begin{center}
+        \includegraphics[height=12cm]{lejog-earth}
+    \end{center}
+
+\end{slide}
 
 
 \begin{slide}
@@ -123,6 +133,17 @@
         \item 52k calories burnt
         \item Weight before: 77.3kg, after: 77.8kg
     \end{itemize}
+
+\end{slide}
+
+
+\begin{slide}
+
+    \textcolor{blue}{\Large{John O' Groats}}
+
+    \begin{center}
+        \includegraphics[height=15cm]{lejog-complete}
+    \end{center}
 
 \end{slide}
 
@@ -293,6 +314,7 @@
 
 \end{slide}
 
+
 \begin{slide}
 
     \textcolor{blue}{\Large{Lift}}
@@ -309,11 +331,54 @@
 
 \begin{slide}
 
+    \textcolor{blue}{\Large{Lift Loves You}}
+
+    \begin{center}
+        \includegraphics[width=8cm]{lift-jubilant-high-five}
+    \end{center}
+
+\end{slide}
+
+
+\begin{slide}
+
+    \textcolor{blue}{\Large{Lift Daily Habits}}
+
+    \begin{itemize}
+        \item Meditate
+        \item Read
+        \item Make 3 Positive Observations
+        \item Diet
+        \item ...
+    \end{itemize}
+
+\end{slide}
+
+
+\begin{slide}
+
+    \textcolor{blue}{\Large{Lift Analysis}}
+
+    \begin{center}
+        \includegraphics[width=20cm]{lift-data}
+    \end{center}
+
+\end{slide}
+
+
+\begin{slide}
+
     \textcolor{blue}{\Large{Lift Analysis}}
 
     \begin{center}
         \includegraphics[height=14cm]{lift-checkins}
     \end{center}
+
+    \begin{small}
+    \begin{verbatim}
+    SELECT `date`, COUNT(*) FROM lift GROUP BY `date`;
+    \end{verbatim}
+    \end{small}
 
 \end{slide}
 
@@ -326,6 +391,13 @@
         \includegraphics[height=14cm]{lift-checkins-and-streaks}
     \end{center}
 
+
+    \begin{small}
+        \begin{verbatim}
+    SELECT `date`, COUNT(*), SUM(`days in streak`) FROM lift GROUP BY `date`;
+        \end{verbatim}
+    \end{small}
+
 \end{slide}
 
 
@@ -334,8 +406,15 @@
     \textcolor{blue}{\Large{Lift Analysis}}
 
     \begin{center}
-        \includegraphics[height=14cm]{lift-group-day}
+        \includegraphics[height=13cm]{lift-group-day}
     \end{center}
+
+    \begin{small}
+        \begin{verbatim}
+    SELECT dayname(`date`), SUM(`days in streak`) FROM lift
+    GROUP BY dayname(`date`) ORDER BY dayofweek(`date`);
+        \end{verbatim}
+    \end{small}
 
 \end{slide}
 
